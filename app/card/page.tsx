@@ -8,8 +8,9 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Skeleton } from "@/components/ui/skeleton";
 
 
 
@@ -24,6 +25,8 @@ interface Recipe {
 async function getRecipes(): Promise<Recipe[]> {
   const result = await fetch('http://localhost:4000/recipes')
 
+  await new Promise((resolve) => setTimeout(resolve, 3000))
+
   return result.json()
 }
 
@@ -35,7 +38,7 @@ export default async function Home() {
       <div className="grid grid-cols-3 gap-8">
         {recipes.map(recipe => (
           <Card key={recipe.id} className="flex flex-col justify-between">
-            <CardHeader className="flex-row gap-4 items-center">
+            <CardHeader className="flex flex-row gap-4 items-center">
               <Avatar>
                 <AvatarImage src={`/img/${recipe.image}`} alt="Recipe Image" />
                 <AvatarFallback>
