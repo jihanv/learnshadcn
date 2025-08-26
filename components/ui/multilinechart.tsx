@@ -21,14 +21,19 @@ import {
 export const description = "CO₂ emissions by country (1967–2007)"
 
 type ChartLineMultipleProps = {
-    title: string;
-    description?: string;
-    chartData?: unknown[];
-    details?: string;
-    chartConfig: ChartConfig;
+    spec: ChartSpec
 }
 
-export function ChartLineMultiple({ title, description, chartData, details, chartConfig }: ChartLineMultipleProps) {
+export type ChartSpec = {
+    title: string
+    description?: string
+    details?: string
+    chartData: { year: number;[series: string]: number }[]
+    chartConfig: ChartConfig
+}
+
+export function ChartLineMultiple({ spec }: ChartLineMultipleProps) {
+    const { title, description, chartData, details, chartConfig } = spec
     return (
         <Card className="flex max-w-200">
             <CardHeader>
@@ -58,7 +63,7 @@ export function ChartLineMultiple({ title, description, chartData, details, char
                             tickMargin={8}
                             tickFormatter={(v: number) => v.toFixed(0)}
                         />
-                        {/* <ChartTooltip cursor={false} content={<ChartTooltipContent />} /> */}
+                        <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
                         {Object.keys(chartConfig).map((key) => (
                             <Line
                                 key={key}
