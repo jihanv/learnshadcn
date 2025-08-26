@@ -4,8 +4,8 @@ import { ChartConfig } from "@/components/ui/chart";
 
 export default function page() {
     const emissionsSpec: ChartSpec = {
-        title: "CO₂ Emissions",
-        description: "United Kingdom, Sweden, Italy, Portugal — 1967–2007",
+        title: "Average carbon dioxide (CO₂) emissions per person, 1967-2007 ",
+        description: "The graph below shows average carbon dioxide (Co2) emissions per person in the United Kingdom, Sweden, Italy, and Portugal between 1967 and 2007.",
         chartData: [
             { year: 1967, uk: 10.7, sweden: 8.7, italy: 4.2, portugal: 1.2 },
             { year: 1977, uk: 10.8, sweden: 10.2, italy: 6.3, portugal: 2.0 },
@@ -13,7 +13,7 @@ export default function page() {
             { year: 1997, uk: 9.5, sweden: 6.1, italy: 7.6, portugal: 5.2 },
             { year: 2007, uk: 8.9, sweden: 5.4, italy: 7.6, portugal: 5.4 },
         ],
-        details: "CO₂ emissions per capita (metric tonnes)",
+        details: "CO₂ emissions in metric tonnes",
         chartConfig: {
             uk: { label: "United Kingdom", color: "var(--chart-1)" },
             sweden: { label: "Sweden", color: "var(--chart-2)" },

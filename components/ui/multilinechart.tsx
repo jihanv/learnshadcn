@@ -14,6 +14,8 @@ import {
 import {
     ChartConfig,
     ChartContainer,
+    ChartLegend,
+    ChartLegendContent,
     ChartTooltip,
     ChartTooltipContent,
 } from "@/components/ui/chart"
@@ -38,7 +40,7 @@ export function ChartLineMultiple({ spec }: ChartLineMultipleProps) {
         <Card className="flex max-w-200">
             <CardHeader>
                 <CardTitle>{title}</CardTitle>
-                {description && (<CardDescription>{description}</CardDescription>)}
+                {/* {description && (<CardDescription>{description}</CardDescription>)} */}
             </CardHeader>
 
             <CardContent>
@@ -70,12 +72,20 @@ export function ChartLineMultiple({ spec }: ChartLineMultipleProps) {
                                 dataKey={key}
                                 type="linear"
                                 stroke={chartConfig[key].color}
-                                strokeWidth={2}
+                                strokeWidth={3}
                                 dot={false}
                                 strokeDasharray={chartConfig[key].dashArray} // <- optional
                             />
                         ))}
+                        <ChartLegend
+                            verticalAlign="bottom"
+                            align="center"
+                            content={<ChartLegendContent nameKey="value" />}
+                        />
+
                     </LineChart>
+
+
                 </ChartContainer>
             </CardContent>
 

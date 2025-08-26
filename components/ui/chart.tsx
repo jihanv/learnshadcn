@@ -287,7 +287,7 @@ function ChartLegendContent({
               "[&>svg]:text-muted-foreground flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3"
             )}
           >
-            {itemConfig?.icon && !hideIcon ? (
+            {/* {itemConfig?.icon && !hideIcon ? (
               <itemConfig.icon />
             ) : (
               <div
@@ -296,6 +296,22 @@ function ChartLegendContent({
                   backgroundColor: item.color,
                 }}
               />
+            )} */}
+            {itemConfig?.icon && !hideIcon ? (
+              <itemConfig.icon />
+            ) : (
+              <svg width="16" height="10" viewBox="0 0 16 10" className="shrink-0">
+                <line
+                  x1="0"
+                  y1="5"
+                  x2="16"
+                  y2="5"
+                  stroke={item.color}
+                  strokeWidth={4}
+                  // if you added dashArray to ChartConfig, show it here:
+                  strokeDasharray={itemConfig?.dashArray}
+                />
+              </svg>
             )}
             {itemConfig?.label}
           </div>
