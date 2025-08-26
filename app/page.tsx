@@ -8,7 +8,10 @@ export default function Page() {
                 <Button className="hover:cursor-pointer" >Checkout Card Component</Button>
             </Link>
             <Link href="/chart1">
-                <Button className="hover:cursor-pointer" >Checkout chart</Button>
+                <Button className="hover:cursor-pointer" >Checkout chart1</Button>
+            </Link>
+            <Link href="/chart2">
+                <Button className="hover:cursor-pointer" >Checkout chart2</Button>
             </Link>
         </div>
     );
